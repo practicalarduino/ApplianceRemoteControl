@@ -10,9 +10,17 @@
  * control. Outputs are pulsed for 200ms to simulate manually pressing
  * a button.
  *
+ * The number of outputs can be trivially varied to suit your needs.
+ *
+ * This sketch is a very simple and useful building block for any
+ * project where you need to use an Arduino as an intermediary to link
+ * together a host computer and a physical device for automated
+ * control.
+ *
  * http://www.practicalarduino.com/projects/easy/appliance-remote-control
  */
 
+// Use pins 9 through 12 as the digital outputs
 int outPut1 = 9;
 int outPut2 = 10;
 int outPut3 = 11;
@@ -22,9 +30,9 @@ int buttonPressTime = 200;
 
 void setup()
 {
-  // Open the serial connection to listen for commands
+  // Open the serial connection to listen for commands from the host
   Serial.begin (38400);
-  
+
   // Set up the pins as outputs
   pinMode(outPut1, OUTPUT);
   pinMode(outPut2, OUTPUT);
@@ -48,9 +56,26 @@ void loop()
     // If the value is "-1" there's no data on the port
     if (val != -1) {
       if (val == '1') {
+        // Pulse the first button
         digitalWrite (outPut1, HIGH);
         delay (buttonPressTime);
         digitalWrite (outPut1, LOW);
+      } else if (val == '2') {
+        // Pulse the second button
+        digitalWrite (outPut2, HIGH);
+        delay (buttonPressTime);
+        digitalWrite (outPut2, LOW);
+      } else if (val == '3') {
+        // Pulse the third button
+        digitalWrite (outPut3, HIGH);
+        delay (buttonPressTime);
+        digitalWrite (outPut3, LOW);
+      } else if (val == '4') {
+        // Pulse the fourth button
+        digitalWrite (outPut4, HIGH);
+        delay (buttonPressTime);
+        digitalWrite (outPut4, LOW);
       }
-   }
+    }
+  }
 }

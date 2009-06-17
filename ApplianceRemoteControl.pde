@@ -1,5 +1,5 @@
 /*
- * ApplianceControl
+ * ApplianceRemoteControl
  *
  * Waits for control values to be sent via the serial connection and
  * pulses digital outputs to trigger the buttons on an appliance remote

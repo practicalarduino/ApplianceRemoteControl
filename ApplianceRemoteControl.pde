@@ -27,12 +27,15 @@ int outPut6 = 10;
 int outPut7 = 11;
 int outPut8 = 12;
 
-int buttonPressTime = 200;
+int buttonPressTime = 250;   // Number of milliseconds to hold outputs on
 
+/**
+ * Initial configuration
+ */
 void setup()
 {
   // Open the serial connection to listen for commands from the host
-  Serial.begin (38400);
+  Serial.begin(38400);
 
   // Set up the pins as outputs
   pinMode(outPut1, OUTPUT);
@@ -55,55 +58,58 @@ void setup()
   digitalWrite(outPut8, LOW);
 }
 
+/**
+ * Main program loop
+ */
 void loop()
 {
   byte val;
 
   // Check if a value has been sent by the host
-  if (Serial.available()) {
+  if(Serial.available()) {
     val = Serial.read();
     // If the value is "-1" there's no data on the port
-    if (val != -1) {
-      if (val == '1') {
-        // Pulse the first button
-        digitalWrite (outPut1, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (outPut1, LOW);
-      } else if (val == '2') {
-        // Pulse the second button
-        digitalWrite (outPut2, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (outPut2, LOW);
-      } else if (val == '3') {
-        // Pulse the third button
-        digitalWrite (outPut3, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (outPut3, LOW);
-      } else if (val == '4') {
-        // Pulse the fourth button
-        digitalWrite (outPut4, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (outPut4, LOW);
-      } else if (val == '5') {
-        // Pulse the fifth button
-        digitalWrite (outPut5, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (outPut5, LOW);
-      } else if (val == '6') {
-        // Pulse the sixth button
-        digitalWrite (outPut6, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (outPut6, LOW);
-      } else if (val == '7') {
-        // Pulse the seventh button
-        digitalWrite (outPut7, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (outPut7, LOW);
-      } else if (val == '8') {
-        // Pulse the eighth button
-        digitalWrite (outPut8, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (outPut8, LOW);
+    if(val != -1) {
+      if(val == '1') {
+        // Pulse the 1st button
+        digitalWrite(outPut1, HIGH);
+        delay(buttonPressTime);
+        digitalWrite(outPut1, LOW);
+      } else if(val == '2') {
+        // Pulse the 2nd button
+        digitalWrite(outPut2, HIGH);
+        delay(buttonPressTime);
+        digitalWrite(outPut2, LOW);
+      } else if(val == '3') {
+        // Pulse the 3rd button
+        digitalWrite(outPut3, HIGH);
+        delay(buttonPressTime);
+        digitalWrite(outPut3, LOW);
+      } else if(val == '4') {
+        // Pulse the 4th button
+        digitalWrite(outPut4, HIGH);
+        delay(buttonPressTime);
+        digitalWrite(outPut4, LOW);
+      } else if(val == '5') {
+        // Pulse the 5th button
+        digitalWrite(outPut5, HIGH);
+        delay(buttonPressTime);
+        digitalWrite(outPut5, LOW);
+      } else if(val == '6') {
+        // Pulse the 6th button
+        digitalWrite(outPut6, HIGH);
+        delay(buttonPressTime);
+        digitalWrite(outPut6, LOW);
+      } else if(val == '7') {
+        // Pulse the 7th button
+        digitalWrite(outPut7, HIGH);
+        delay(buttonPressTime);
+        digitalWrite(outPut7, LOW);
+      } else if(val == '8') {
+        // Pulse the 8th button
+        digitalWrite(outPut8, HIGH);
+        delay(buttonPressTime);
+        digitalWrite(outPut8, LOW);
       }
     }
   }

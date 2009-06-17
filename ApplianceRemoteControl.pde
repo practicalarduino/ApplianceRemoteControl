@@ -1,10 +1,6 @@
 /*
  * ApplianceControl
  *
- * Copyright 2009 Jonathan Oxer <jon@oxer.com.au>
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 3.
- *
  * Waits for control values to be sent via the serial connection and
  * pulses digital outputs to trigger the buttons on an appliance remote
  * control. Outputs are pulsed for 200ms to simulate manually pressing
@@ -17,14 +13,19 @@
  * together a host computer and a physical device for automated
  * control.
  *
+ * Copyright 2009 Jonathan Oxer <jon@oxer.com.au>
  * http://www.practicalarduino.com/projects/easy/appliance-remote-control
  */
 
-// Use pins 9 through 12 as the digital outputs
-int outPut1 = 9;
-int outPut2 = 10;
-int outPut3 = 11;
-int outPut4 = 12;
+// Use pins 5 through 12 as the digital outputs
+int outPut1 = 5;
+int outPut2 = 6;
+int outPut3 = 7;
+int outPut4 = 8;
+int outPut5 = 9;
+int outPut6 = 10;
+int outPut7 = 11;
+int outPut8 = 12;
 
 int buttonPressTime = 200;
 
@@ -38,12 +39,20 @@ void setup()
   pinMode(outPut2, OUTPUT);
   pinMode(outPut3, OUTPUT);
   pinMode(outPut4, OUTPUT);
+  pinMode(outPut5, OUTPUT);
+  pinMode(outPut6, OUTPUT);
+  pinMode(outPut7, OUTPUT);
+  pinMode(outPut8, OUTPUT);
 
   // Make sure the outputs are all set LOW initally
   digitalWrite(outPut1, LOW);
   digitalWrite(outPut2, LOW);
   digitalWrite(outPut3, LOW);
   digitalWrite(outPut4, LOW);
+  digitalWrite(outPut5, LOW);
+  digitalWrite(outPut6, LOW);
+  digitalWrite(outPut7, LOW);
+  digitalWrite(outPut8, LOW);
 }
 
 void loop()
@@ -75,6 +84,26 @@ void loop()
         digitalWrite (outPut4, HIGH);
         delay (buttonPressTime);
         digitalWrite (outPut4, LOW);
+      } else if (val == '5') {
+        // Pulse the fifth button
+        digitalWrite (outPut5, HIGH);
+        delay (buttonPressTime);
+        digitalWrite (outPut5, LOW);
+      } else if (val == '6') {
+        // Pulse the sixth button
+        digitalWrite (outPut6, HIGH);
+        delay (buttonPressTime);
+        digitalWrite (outPut6, LOW);
+      } else if (val == '7') {
+        // Pulse the seventh button
+        digitalWrite (outPut7, HIGH);
+        delay (buttonPressTime);
+        digitalWrite (outPut7, LOW);
+      } else if (val == '8') {
+        // Pulse the eighth button
+        digitalWrite (outPut8, HIGH);
+        delay (buttonPressTime);
+        digitalWrite (outPut8, LOW);
       }
     }
   }

@@ -53,29 +53,26 @@ void loop()
   // Check if a value has been sent by the host
   if (Serial.available()) {
     val = Serial.read();
-    // If the value is "-1" there's no data on the port
-    if (val != -1) {
-      if (val == '1') {
-        // Pulse the first button
-        digitalWrite (output1, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (output1, LOW);
-      } else if (val == '2') {
-        // Pulse the second button
-        digitalWrite (output2, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (output2, LOW);
-      } else if (val == '3') {
-        // Pulse the third button
-        digitalWrite (output3, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (output3, LOW);
-      } else if (val == '4') {
-        // Pulse the fourth button
-        digitalWrite (output4, HIGH);
-        delay (buttonPressTime);
-        digitalWrite (output4, LOW);
-      }
+    if (val == '1') {
+      // Pulse the first button
+      digitalWrite (output1, HIGH);
+      delay (buttonPressTime);
+      digitalWrite (output1, LOW);
+    } else if (val == '2') {
+      // Pulse the second button
+      digitalWrite (output2, HIGH);
+      delay (buttonPressTime);
+      digitalWrite (output2, LOW);
+    } else if (val == '3') {
+      // Pulse the third button
+      digitalWrite (output3, HIGH);
+      delay (buttonPressTime);
+      digitalWrite (output3, LOW);
+    } else if (val == '4') {
+      // Pulse the fourth button
+      digitalWrite (output4, HIGH);
+      delay (buttonPressTime);
+      digitalWrite (output4, LOW);
     }
   }
 }

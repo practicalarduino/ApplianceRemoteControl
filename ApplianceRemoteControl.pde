@@ -1,9 +1,5 @@
 /*
- * ApplianceControl
- *
- * Copyright 2009 Jonathan Oxer <jon@oxer.com.au>
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 3.
+ * ApplianceRemoteControl
  *
  * Waits for control values to be sent via the serial connection and
  * pulses digital outputs to trigger the buttons on an appliance remote
@@ -17,62 +13,103 @@
  * together a host computer and a physical device for automated
  * control.
  *
- * http://www.practicalarduino.com/projects/easy/appliance-remote-control
+ * Copyright 2009 Jonathan Oxer <jon@oxer.com.au>
+ * Copyright 2009 Hugh Blemings <hugh@blemings.org>
+ * http://www.practicalarduino.com/projects/appliance-remote-control
  */
 
-// Use pins 9 through 12 as the digital outputs
-int output1 = 9;
-int output2 = 10;
-int output3 = 11;
-int output4 = 12;
+// Use pins 5 through 12 as the digital outputs
+int output1 = 5;
+int output2 = 6;
+int output3 = 7;
+int output4 = 8;
+int output5 = 9;
+int output6 = 10;
+int output7 = 11;
+int output8 = 12;
 
-int buttonPressTime = 200;
+int buttonPressTime = 250;   // Number of milliseconds to hold outputs on
 
+/**
+ * Initial configuration
+ */
 void setup()
 {
   // Open the serial connection to listen for commands from the host
-  Serial.begin (38400);
+  Serial.begin(38400);
 
   // Set up the pins as outputs
   pinMode(output1, OUTPUT);
   pinMode(output2, OUTPUT);
   pinMode(output3, OUTPUT);
   pinMode(output4, OUTPUT);
+  pinMode(output5, OUTPUT);
+  pinMode(output6, OUTPUT);
+  pinMode(output7, OUTPUT);
+  pinMode(output8, OUTPUT);
 
   // Make sure the outputs are all set LOW initally
   digitalWrite(output1, LOW);
   digitalWrite(output2, LOW);
   digitalWrite(output3, LOW);
   digitalWrite(output4, LOW);
+  digitalWrite(output5, LOW);
+  digitalWrite(output6, LOW);
+  digitalWrite(output7, LOW);
+  digitalWrite(output8, LOW);
 }
 
+/**
+ * Main program loop
+ */
 void loop()
 {
   byte val;
 
   // Check if a value has been sent by the host
-  if (Serial.available()) {
+  if(Serial.available()) {
     val = Serial.read();
-    if (val == '1') {
-      // Pulse the first button
-      digitalWrite (output1, HIGH);
-      delay (buttonPressTime);
-      digitalWrite (output1, LOW);
-    } else if (val == '2') {
-      // Pulse the second button
-      digitalWrite (output2, HIGH);
-      delay (buttonPressTime);
-      digitalWrite (output2, LOW);
-    } else if (val == '3') {
-      // Pulse the third button
-      digitalWrite (output3, HIGH);
-      delay (buttonPressTime);
-      digitalWrite (output3, LOW);
-    } else if (val == '4') {
-      // Pulse the fourth button
-      digitalWrite (output4, HIGH);
-      delay (buttonPressTime);
-      digitalWrite (output4, LOW);
+
+    if(val == '1') {
+      // Pulse the 1st button
+      digitalWrite(output1, HIGH);
+      delay(buttonPressTime);
+      digitalWrite(output1, LOW);
+    } else if(val == '2') {
+      // Pulse the 2nd button
+      digitalWrite(output2, HIGH);
+      delay(buttonPressTime);
+      digitalWrite(output2, LOW);
+    } else if(val == '3') {
+      // Pulse the 3rd button
+      digitalWrite(output3, HIGH);
+      delay(buttonPressTime);
+      digitalWrite(output3, LOW);
+    } else if(val == '4') {
+      // Pulse the 4th button
+      digitalWrite(output4, HIGH);
+      delay(buttonPressTime);
+      digitalWrite(output4, LOW);
+    } else if(val == '5') {
+      // Pulse the 5th button
+      digitalWrite(output5, HIGH);
+      delay(buttonPressTime);
+      digitalWrite(output5, LOW);
+    } else if(val == '6') {
+      // Pulse the 6th button
+      digitalWrite(output6, HIGH);
+      delay(buttonPressTime);
+      digitalWrite(output6, LOW);
+    } else if(val == '7') {
+      // Pulse the 7th button
+      digitalWrite(output7, HIGH);
+      delay(buttonPressTime);
+      digitalWrite(output7, LOW);
+    } else if(val == '8') {
+      // Pulse the 8th button
+      digitalWrite(output8, HIGH);
+      delay(buttonPressTime);
+      digitalWrite(output8, LOW);
     }
   }
 }

@@ -48,7 +48,7 @@ void setup()
   pinMode(output7, OUTPUT);
   pinMode(output8, OUTPUT);
 
-  // Make sure the outputs are all set LOW initally
+  // Make sure the outputs are all set LOW initially
   digitalWrite(output1, LOW);
   digitalWrite(output2, LOW);
   digitalWrite(output3, LOW);

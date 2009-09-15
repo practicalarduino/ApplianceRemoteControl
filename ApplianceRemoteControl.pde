@@ -21,10 +21,10 @@
  */
 
 // Use pins 9 through 12 as the digital outputs
-int outPut1 = 9;
-int outPut2 = 10;
-int outPut3 = 11;
-int outPut4 = 12;
+int output1 = 9;
+int output2 = 10;
+int output3 = 11;
+int output4 = 12;
 
 int buttonPressTime = 200;
 
@@ -34,16 +34,16 @@ void setup()
   Serial.begin (38400);
 
   // Set up the pins as outputs
-  pinMode(outPut1, OUTPUT);
-  pinMode(outPut2, OUTPUT);
-  pinMode(outPut3, OUTPUT);
-  pinMode(outPut4, OUTPUT);
+  pinMode(output1, OUTPUT);
+  pinMode(output2, OUTPUT);
+  pinMode(output3, OUTPUT);
+  pinMode(output4, OUTPUT);
 
   // Make sure the outputs are all set LOW initally
-  digitalWrite(outPut1, LOW);
-  digitalWrite(outPut2, LOW);
-  digitalWrite(outPut3, LOW);
-  digitalWrite(outPut4, LOW);
+  digitalWrite(output1, LOW);
+  digitalWrite(output2, LOW);
+  digitalWrite(output3, LOW);
+  digitalWrite(output4, LOW);
 }
 
 void loop()
@@ -57,24 +57,24 @@ void loop()
     if (val != -1) {
       if (val == '1') {
         // Pulse the first button
-        digitalWrite (outPut1, HIGH);
+        digitalWrite (output1, HIGH);
         delay (buttonPressTime);
-        digitalWrite (outPut1, LOW);
+        digitalWrite (output1, LOW);
       } else if (val == '2') {
         // Pulse the second button
-        digitalWrite (outPut2, HIGH);
+        digitalWrite (output2, HIGH);
         delay (buttonPressTime);
-        digitalWrite (outPut2, LOW);
+        digitalWrite (output2, LOW);
       } else if (val == '3') {
         // Pulse the third button
-        digitalWrite (outPut3, HIGH);
+        digitalWrite (output3, HIGH);
         delay (buttonPressTime);
-        digitalWrite (outPut3, LOW);
+        digitalWrite (output3, LOW);
       } else if (val == '4') {
         // Pulse the fourth button
-        digitalWrite (outPut4, HIGH);
+        digitalWrite (output4, HIGH);
         delay (buttonPressTime);
-        digitalWrite (outPut4, LOW);
+        digitalWrite (output4, LOW);
       }
     }
   }
